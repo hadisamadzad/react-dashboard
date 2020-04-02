@@ -1,0 +1,49 @@
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+module.exports = (env) => {
+
+    const isProduction = env === 'production'
+
+    return {
+        entry: "./src/app.js",
+        output: {
+            path: path.join(__dirname, 'public', 'dist'),
+            filename: 'bundle.js'
+        },
+        module: {
+            rules: [{
+                test: /\.js$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/
+            }, {
+                test: /\.s?css$/,
+                use: ['css-loader', 'sass-loader']
+                //use: [
+                //    {
+                //        loader: 'css-loader',
+                //        options: {
+                //            sourceMap: true
+                //        }
+                //    }, {
+                //        loader: 'sass-loader',
+                //        options: {
+                //            sourceMap: true
+                //        }
+                //    }
+                //]
+            }]
+        },
+        plugins: [
+            //new MiniCssExtractPlugin({
+            //    filename: 'styles.css',
+            //}),
+        ],
+        devtool: isProduction ? 'source-map' : 'inline-source-map',
+        devServer: {
+            contentBase: path.join(__dirname, 'public'),
+            historyApiFallback: true, // Added to provide index.html for any not matched route
+            publicPath: '/dist/'
+        },
+    };
+}
