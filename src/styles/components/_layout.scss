@@ -1,0 +1,36 @@
+@import '../base/settings';
+
+$logoHeight: 32px;
+
+.logo {
+    height: $logoHeight;
+    line-height: $logoHeight;
+    color: #fff;
+    font-size: $m-size;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.2);
+    margin: $logoHeight/2;
+    text-align: center;
+  }
+  
+  .site-layout-sub-header-background {
+    background: #043364;
+  }
+  
+  .site-layout-background {
+    background: #fff;
+  }
+  
+  [data-theme="dark"] .site-layout-sub-header-background {
+      background: #141414;
+  }
+
+  .sider-menu{
+    direction: rtl;
+    text-align: right;
+  }
+
+  .sider-menu-icon{
+    margin-left: 1rem;
+  }
+  
