@@ -1,17 +1,17 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Header from '../components/Header';
-import DashboardPage from '../pages/DashboardPage';
+import DashboardLayout from '../components/DashboardLayout';
 import AddAssetPage from '../components/AddAssetPage';
 import NotFoundPage from '../components/NotFoundPage';
+import IndexPage from '../pages/IndexPage';
 
 const AppRouter = () => (
     <BrowserRouter>
         <div>
-            <Header />
+            <DashboardLayout />
             <Switch>
-                <Route path="/" component={DashboardPage} exact={true} />
+                <Route path="/" component={IndexPage} exact={true} />
                 <Route path="/create" component={AddAssetPage} />
                 <Route component={NotFoundPage} />
             </Switch>
