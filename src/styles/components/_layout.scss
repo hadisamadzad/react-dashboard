@@ -1,15 +1,19 @@
 @import '../base/settings';
 
-$logoHeight: 32px;
+$logoHeight: 64px;
+
+.content {
+  margin: 24px 16px 0;
+}
 
 .logo {
     height: $logoHeight;
-    line-height: $logoHeight;
-    color: #fff;
+    line-height: $logoHeight / 2;
+    color: #333333;
     font-size: $m-size;
     font-weight: 600;
-    background: rgba(255, 255, 255, 0.2);
-    margin: $logoHeight/2;
+    background: rgba(0, 0, 0, 0.2);
+    padding: $m-size;
     text-align: center;
   }
   
@@ -28,9 +32,11 @@ $logoHeight: 32px;
   .sider-menu{
     direction: rtl;
     text-align: right;
-  }
-
-  .sider-menu-icon{
-    margin-left: 1rem;
+    
+    .sider-menu-icon{
+      line-height: 1.2 * $m-size;
+      margin-left: 1rem;
+      font-size: $m-size;
+    }
   }
   

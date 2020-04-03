@@ -4,7 +4,7 @@ import { Layout, Breadcrumb } from 'antd'
 
 const { Content } = Layout;
 
-const IndexPage = () => {
+const UsersListPage = () => {
     return (
         <>
             Salam
@@ -12,4 +12,4 @@ const IndexPage = () => {
     )
 }
 
-export default IndexPage
+export default UsersListPage

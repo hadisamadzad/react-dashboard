@@ -1,14 +1,13 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom';
+import { Layout, Menu, Breadcrumb } from 'antd'
 import 'antd/dist/antd.css';
 import '../styles/components/_layout.scss'
-import { Layout, Menu, Breadcrumb } from 'antd'
 import {
-    UploadOutlined,
-    UserOutlined,
-    VideoCameraOutlined,
-    AppstoreOutlined
+    ControlOutlined,
+    AppstoreOutlined,
+    UserOutlined
 } from '@ant-design/icons';
-import { NavLink } from 'react-router-dom';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -17,7 +16,7 @@ const LayoutHOC = () => {
         <Layout>
             <Layout>
                 <Header className="site-layout-sub-header-background" style={{ padding: 0 }} />
-                <Content style={{ margin: '24px 16px 0' }}>
+                <Content className='content'>
                     <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
                         content
                     </div>
@@ -45,8 +44,11 @@ const LayoutHOC = () => {
                     mode="inline"
                     defaultSelectedKeys={['1']}
                 >
-                    <Menu.Item key="1" className={'sider-menu'}>
-                        <AppstoreOutlined className={'sider-menu-icon'} />
+                    <Menu.Item
+                        key="1"
+                        className={'sider-menu'}
+                    >
+                        <ControlOutlined className={'sider-menu-icon'} />
                         <NavLink
                             to="/"
                             className='nav-text'
@@ -56,31 +58,34 @@ const LayoutHOC = () => {
                             Dashboard
                         </NavLink>
                     </Menu.Item>
-                    <Menu.Item key="2">
-                        <VideoCameraOutlined />
+                    <Menu.Item
+                        key="2"
+                        className={'sider-menu'}
+                    >
+                        <UserOutlined className={'sider-menu-icon'} />
                         <NavLink
-                            to="/create"
+                            to="/users"
                             className='nav-text'
-                            activeClassName="is-active">
-                            Create Asset
-                            </NavLink>
-                    </Menu.Item>
-                    <Menu.Item key="3">
-                        <UploadOutlined />
-                        <NavLink
-                            to="/help"
-                            className='nav-text'
-                            activeClassName="is-active">
-                            Help
+                            activeClassName="is-active"
+                        >
+                            Users
                         </NavLink>
                     </Menu.Item>
-                    <Menu.Item key="4">
-                        <UserOutlined />
-                        <span className="nav-text">nav 4</span>
+                    <Menu.Item
+                        key="3"
+                        className={'sider-menu'}
+                    >
+                        <AppstoreOutlined className={'sider-menu-icon'} />
+                        <NavLink
+                            to="/assets"
+                            className='nav-text'
+                            activeClassName="is-active"
+                        >
+                            Assets
+                        </NavLink>
                     </Menu.Item>
                 </Menu>
             </Sider>
-
         </Layout>
     )
 }
