@@ -1,30 +1,46 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import AppRouter from './routers/AppRouter'
+import _ from 'lodash'
 import { Provider } from 'react-redux'
 import configureStore from './store/configureStore'
 import { addAsset } from './actions/assets'
+import { addUser } from './actions/users'
 import 'normalize.css/normalize.css'
 import './styles/styles.scss'
 
+
 const store = configureStore()
+const logState = _.debounce(() => {
+    console.log(store.getState())
+}, 10)
 
-//store.dispatch(addAsset({ description: 'Water Bill', amount: 1200, createdAt: 1391 }))
-//store.dispatch(addAsset({ description: 'Gas Bill', amount: 2300, createdAt: 1392 }))
-//store.dispatch(addAsset({ description: 'Power Bill', amount: 1500, createdAt: 1388 }))
-//store.dispatch(addAsset({ description: 'Rent', amount: 109500, createdAt: 1377 }))
-//store.dispatch(setTextFilter('water'));
-//setTimeout(() => {
-//    store.dispatch(setTextFilter('bill'));
-//}, 3000);
+store.subscribe(() => {
+    logState()
+})
 
-//const state = store.getState()
+store.dispatch(addUser({
+    firstName: 'Amin',
+    lastName: 'Ramini',
+    mobile: '9128086578',
+    email: 'a.ramini@gmail.com',
+    password: '123456'
+}))
+
+store.dispatch(addUser({
+    firstName: 'Nasrin',
+    lastName: 'Jafari',
+    mobile: '9178189260',
+    email: 'n.jafari@gmail.com',
+    password: '123456'
+}))
+
 //const visibleExpenses = getVisibleExpenses(state.expenses, state.filters)
 
-const jsx = (
+const app = (
     <Provider store={store}>
         <AppRouter />
     </Provider>
 );
 
-ReactDOM.render(jsx, document.getElementById("app"));
+ReactDOM.render(app, document.getElementById("app"));

@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import DashboardLayout from '../components/DashboardLayout';
+import LayoutHOC from '../components/LayoutHOC';
 import AddAssetPage from '../components/AddAssetPage';
 import NotFoundPage from '../components/NotFoundPage';
 import IndexPage from '../pages/IndexPage';
@@ -9,7 +9,7 @@ import IndexPage from '../pages/IndexPage';
 const AppRouter = () => (
     <BrowserRouter>
         <div>
-            <DashboardLayout />
+            <LayoutHOC />
             <Switch>
                 <Route path="/" component={IndexPage} exact={true} />
                 <Route path="/create" component={AddAssetPage} />
@@ -17,6 +17,6 @@ const AppRouter = () => (
             </Switch>
         </div>
     </BrowserRouter>
-);
+)
 
-export default AppRouter;
+export default AppRouter
