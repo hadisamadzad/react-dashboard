@@ -1,14 +1,13 @@
 import React from 'react'
 import 'antd/dist/antd.css';
-import { Layout, Breadcrumb } from 'antd'
+import LayoutHOC from '../../components/LayoutHOC'
+import UsersList from '../../components/UsersList'
 
-const { Content } = Layout;
+const usersList = <UsersList></UsersList>;
 
 const UsersListPage = () => {
     return (
-        <>
-            Salam
-        </>
+        <LayoutHOC component={usersList} />
     )
 }
 

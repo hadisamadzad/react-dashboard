@@ -4,18 +4,18 @@ export const addUser = ({
     id = '',
     mobile = '',
     email = '',
-    password = '',
     firstName = '',
-    lastName = ''
+    lastName = '',
+    password = ''
 } = {}) => ({
     type: 'ADD_USER',
     user: {
         id: uuidv4(),
         mobile,
         email,
-        password,
         firstName,
-        lastName
+        lastName,
+        password
     }
 });
 

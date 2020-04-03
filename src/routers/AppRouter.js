@@ -9,15 +9,12 @@ import UsersListPage from '../pages/users/UsersListPage'
 
 const AppRouter = () => (
     <BrowserRouter>
-        <div>
-            <LayoutHOC />
-            <Switch>
-                <Route path="/" component={IndexPage} exact={true} />
-                <Route path="/users" component={UsersListPage} />
-                <Route path="/assets/create" component={AddAssetPage} />
-                <Route component={NotFoundPage} />
-            </Switch>
-        </div>
+        <Switch>
+            <Route path="/" component={IndexPage} exact={true} />
+            <Route path="/users" component={UsersListPage} />
+            <Route path="/assets/create" component={AddAssetPage} />
+            <Route component={NotFoundPage} />
+        </Switch>
     </BrowserRouter>
 )
 

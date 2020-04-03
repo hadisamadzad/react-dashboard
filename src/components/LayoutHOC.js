@@ -7,21 +7,33 @@ import {
     ControlOutlined,
     AppstoreOutlined,
     UserOutlined
-} from '@ant-design/icons';
+} from '@ant-design/icons'
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Content, Footer, Sider } = Layout
 
-const LayoutHOC = () => {
+const LayoutHOC = (props) => {
     return (
         <Layout>
             <Layout>
-                <Header className="site-layout-sub-header-background" style={{ padding: 0 }} />
-                <Content className='content'>
-                    <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-                        content
+                <Header
+                    className="site-layout-sub-header-background"
+                    style={{ padding: 0 }}
+                />
+                <Content
+                    className='content'
+                >
+                    <div
+                        className="site-layout-background"
+                        style={{ padding: 24, minHeight: 680 }}
+                    >
+                        {props.component}
                     </div>
                 </Content>
-                <Footer style={{ textAlign: 'center' }}>Hanon3D @2020 Created by Hadi Samadzad</Footer>
+                <Footer
+                    style={{ textAlign: 'center' }}
+                >
+                    Hanon3D @2020 Created by Hadi Samadzad
+                </Footer>
             </Layout>
             <Sider
                 theme={'light'}
@@ -36,7 +48,9 @@ const LayoutHOC = () => {
                     //console.log(collapsed, type);
                 }}
             >
-                <div className="logo">
+                <div
+                    className="logo"
+                >
                     Hanon3D
                 </div>
                 <Menu

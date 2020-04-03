@@ -1,14 +1,10 @@
 import React from 'react'
 import 'antd/dist/antd.css';
-import { Layout, Breadcrumb } from 'antd'
-
-const { Content } = Layout;
+import LayoutHOC from '../components/LayoutHOC'
 
 const IndexPage = () => {
     return (
-        <>
-            Salam
-        </>
+        <LayoutHOC component={'Here is Index'} />
     )
 }
 
