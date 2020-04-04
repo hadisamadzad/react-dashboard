@@ -12,31 +12,45 @@ module.exports = (env) => {
             filename: 'bundle.js'
         },
         module: {
-            rules: [{
-                test: /\.js$/,
-                loader: 'babel-loader',
-                exclude: /node_modules/
-            }, {
-                test: /\.s?css$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    'sass-loader'
-                ]
-                //use: [
-                //    {
-                //        loader: 'css-loader',
-                //        options: {
-                //            sourceMap: true
-                //        }
-                //    }, {
-                //        loader: 'sass-loader',
-                //        options: {
-                //            sourceMap: true
-                //        }
-                //    }
-                //]
-            }]
+            rules: [
+                {
+                    test: /\.js$/,
+                    loader: 'babel-loader',
+                    exclude: /node_modules/
+                }, {
+                    test: /\.s?css$/,
+                    use: [
+                        'style-loader',
+                        'css-loader',
+                        'sass-loader'
+                    ]
+                    //use: [
+                    //    {
+                    //        loader: 'css-loader',
+                    //        options: {
+                    //            sourceMap: true
+                    //        }
+                    //    }, {
+                    //        loader: 'sass-loader',
+                    //        options: {
+                    //            sourceMap: true
+                    //        }
+                    //    }
+                    //]
+                }, {
+                    test: /\.(jpe?g|png|gif|woff|woff2|eot|ttf|svg)$/,
+                    exclude: /node_modules/,
+                    use: [
+                        {
+                            loader: 'url-loader',
+                            options: {
+                                limit: 8192,
+                            }
+                        }, {
+                            loader: 'file-loader',
+                        }
+                    ]
+                }]
         },
         plugins: [
             //new MiniCssExtractPlugin({
