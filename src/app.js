@@ -16,21 +16,21 @@ const logState = _.debounce(() => {
 }, 10)
 
 store.subscribe(() => {
-    logState()
+    //logState()
 })
 
 store.dispatch(addUser({
-    firstName: 'Amin',
-    lastName: 'Ramini',
-    mobile: '9128086578',
+    firstName: 'امین',
+    lastName: 'رامینی',
+    mobile: '9128286571',
     email: 'a.ramini@gmail.com',
     password: '123456'
 }))
 
 store.dispatch(addUser({
-    firstName: 'Nasrin',
-    lastName: 'Jafari',
-    mobile: '9178189260',
+    firstName: 'نسرین',
+    lastName: 'جعفری',
+    mobile: '9178189360',
     email: 'n.jafari@gmail.com',
     password: '123456'
 }))

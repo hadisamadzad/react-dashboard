@@ -1,87 +1,71 @@
 import React from 'react'
-import { Table, Divider, Tag, ConfigProvider } from 'antd'
+import { Table, Tag, ConfigProvider } from 'antd'
 import 'antd/dist/antd.css';
+import { connect } from 'react-redux';
 
 const columns = [
     {
         title: 'نام و نام خانوادگی',
-        dataIndex: 'name',
-        key: 'name',
-        render: text => <a>{text}</a>,
+        dataIndex: 'fullName',
+        key: 'fullName',
+        render: (value, record) => <a>{`${record.firstName} ${record.lastName}`}</a>,
     },
     {
-        title: 'Age',
-        dataIndex: 'age',
-        key: 'age',
+        title: 'ایمیل',
+        dataIndex: 'email',
+        key: 'email',
     },
     {
-        title: 'Address',
-        dataIndex: 'address',
-        key: 'address',
+        title: 'موبایل',
+        dataIndex: 'mobile',
+        key: 'mobile',
+        render: value => `0${value}`,
     },
     {
-        title: 'Tags',
-        key: 'tags',
-        dataIndex: 'tags',
-        render: tags => (
+        title: 'وضعیت',
+        key: 'status',
+        dataIndex: 'status',
+        render: status => (
             <span>
-                {tags.map(tag => {
-                    let color = tag.length > 5 ? 'geekblue' : 'green';
-                    if (tag === 'loser') {
-                        color = 'volcano';
-                    }
-                    return (
-                        <Tag color={color} key={tag}>
-                            {tag.toUpperCase()}
-                        </Tag>
-                    );
-                })}
+                <Tag
+                    color={status && status.length > 5 ? 'red' : 'green'}
+                    key={status}
+                >
+                    {status}
+                </Tag>
             </span>
         ),
     },
     {
-        title: 'Action',
+        title: 'مدیریت',
         key: 'action',
         render: (text, record) => (
             <span>
-                <a>Invite {record.name}</a>
-                <Divider type="vertical" />
-                <a>Delete</a>
+                <a>مشاهده</a>
             </span>
         ),
     },
 ];
 
-const data = [
-    {
-        key: '1',
-        name: 'John Brown',
-        age: 32,
-        address: 'New York No. 1 Lake Park',
-        tags: ['nice', 'developer'],
-    },
-    {
-        key: '2',
-        name: 'Jim Green',
-        age: 42,
-        address: 'London No. 1 Lake Park',
-        tags: ['loser'],
-    },
-    {
-        key: '3',
-        name: 'Joe Black',
-        age: 32,
-        address: 'Sidney No. 1 Lake Park',
-        tags: ['cool', 'teacher'],
-    },
-];
+const UsersList = (props) => {
 
-const UsersList = () => {
+    const users = props.users.map(user => ({
+        key: user.id,
+        ...user,
+        status: 'غیرفعال'
+    }))
+
+    console.log(users)
+
     return (
         <ConfigProvider direction={'rtl'}>
-            <Table columns={columns} dataSource={data} direction='rtl' />
+            <Table columns={columns} dataSource={users} />
         </ConfigProvider>
     )
 }
 
-export default UsersList
+const mapStatToProps = (state) => ({
+    users: state.users
+})
+
+export default connect(mapStatToProps)(UsersList)
