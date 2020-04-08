@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Table, Tag, ConfigProvider } from 'antd'
 import 'antd/dist/antd.css';
 import { connect } from 'react-redux';
@@ -41,7 +42,9 @@ const columns = [
         key: 'action',
         render: (text, record) => (
             <span>
-                <a>مشاهده</a>
+                <Link to={`/users/edit/${record.id}`}>
+                    مشاهده
+                </Link>
             </span>
         ),
     },
@@ -54,8 +57,6 @@ const UsersList = (props) => {
         ...user,
         status: 'غیرفعال'
     }))
-
-    console.log(users)
 
     return (
         <ConfigProvider direction={'rtl'}>

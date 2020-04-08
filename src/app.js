@@ -20,6 +20,7 @@ store.subscribe(() => {
 })
 
 store.dispatch(addUser({
+    id: '3eeb54c4-9602-491d-a815-d31630fa340f',
     firstName: 'امین',
     lastName: 'رامینی',
     mobile: '9128286571',
@@ -28,6 +29,7 @@ store.dispatch(addUser({
 }))
 
 store.dispatch(addUser({
+    id: '2389f530-30d0-49d7-8e24-07e782798a25',
     firstName: 'نسرین',
     lastName: 'جعفری',
     mobile: '9178189360',

@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid'
 
 export const addUser = ({
-    id = '',
+    id = uuidv4(),
     mobile = '',
     email = '',
     firstName = '',
@@ -10,7 +10,7 @@ export const addUser = ({
 } = {}) => ({
     type: 'ADD_USER',
     user: {
-        id: uuidv4(),
+        id,
         mobile,
         email,
         firstName,

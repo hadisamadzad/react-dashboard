@@ -7,7 +7,9 @@ const usersList = <UsersList></UsersList>;
 
 const UsersListPage = () => {
     return (
-        <LayoutHOC component={usersList} />
+        <LayoutHOC
+            component={usersList}
+        />
     )
 }
 
