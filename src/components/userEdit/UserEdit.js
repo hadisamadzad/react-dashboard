@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import './style.scss'
 import { Form, Input, Button, ConfigProvider, Row, Col, Space } from 'antd';
 import 'antd/dist/antd.css';
+
 
 const inputLayout = {
     labelCol: {

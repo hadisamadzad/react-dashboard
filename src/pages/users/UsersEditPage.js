@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import LayoutHOC from '../../components/LayoutHOC'
-import UsersEdit from '../../components/UsersEdit'
+import UsersEdit from '../../components/userEdit/UserEdit'
 import { editUser } from '../../actions/users'
 
 const UsersEditPage = (props) => {
